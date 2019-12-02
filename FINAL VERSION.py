@@ -15,30 +15,30 @@ def read_csv():
 FILE_NAME = "Showtimes.csv"
     
 def genre_split():
-    with open("Showtimes.csv") as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')
-        genre_split = []
-        for lines in csv_reader:
-            y = lines[4].split(", ") #https://www.w3schools.com/python/ref_string_split.asp
+    with open("Showtimes.csv") as csv_file: # https://www.foxinfotech.in/2018/09/python-read-csv-columns-into-list.html - Printing specific columns: Used to return the specific column values (genre)
+        csv_reader = csv.reader(csv_file, delimiter=',') # https://www.foxinfotech.in/2018/09/python-read-csv-columns-into-list.html - Printing specific columns: Used to return the specific column values (genre)
+        genre_split = [] # https://www.foxinfotech.in/2018/09/python-read-csv-columns-into-list.html - Printing specific columns: Used to return the specific column values (genre)
+        for lines in csv_reader: # https://www.foxinfotech.in/2018/09/python-read-csv-columns-into-list.html - Printing specific columns: Used to return the specific column values (genre)
+            y = lines[4].split(", ") #https://www.w3schools.com/python/ref_string_split.asp - Splitting up the alternative titles that were all written in one cell on the excel sheet
             genre_split.append(y)
     
 def title_split():
-    with open("Showtimes.csv") as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')    
-        title_split = []
-        for lines in csv_reader:
-            z = lines[0].split(", ")
+    with open("Showtimes.csv") as csv_file: # https://www.foxinfotech.in/2018/09/python-read-csv-columns-into-list.html - Printing specific columns: Used to return the specific column values (title)
+        csv_reader = csv.reader(csv_file, delimiter=',') # https://www.foxinfotech.in/2018/09/python-read-csv-columns-into-list.html - Printing specific columns: Used to return the specific column values (title)
+        title_split = [] # https://www.foxinfotech.in/2018/09/python-read-csv-columns-into-list.html - Printing specific columns: Used to return the specific column values (title)
+        for lines in csv_reader: # https://www.foxinfotech.in/2018/09/python-read-csv-columns-into-list.html - Printing specific columns: Used to return the specific column values (title)
+            z = lines[0].split(", ") #https://www.w3schools.com/python/ref_string_split.asp - Splitting up the alternative titles that were all written in one cell on the excel sheet
             title_split.append(z)    
 
 def genre_dictionary (title_split,genre_split): 
-    with open("Showtimes.csv") as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')
-        genre_split = []
-        title_split = []
-        for lines in csv_reader:
-            y = lines[4].split(", ")
+    with open("Showtimes.csv") as csv_file: # https://www.foxinfotech.in/2018/09/python-read-csv-columns-into-list.html - Printing specific columns: Used to return the specific column values for dictionary
+        csv_reader = csv.reader(csv_file, delimiter=',') # https://www.foxinfotech.in/2018/09/python-read-csv-columns-into-list.html - Printing specific columns: Used to return the specific column values for dictionary
+        genre_split = [] # https://www.foxinfotech.in/2018/09/python-read-csv-columns-into-list.html - Printing specific columns: Used to return the specific column values for dictionary
+        title_split = [] # https://www.foxinfotech.in/2018/09/python-read-csv-columns-into-list.html - Printing specific columns: Used to return the specific column values for dictionary
+        for lines in csv_reader: # https://www.foxinfotech.in/2018/09/python-read-csv-columns-into-list.html - Printing specific columns: Used to return the specific column values for dictionary
+            y = lines[4].split(", ") #https://www.w3schools.com/python/ref_string_split.asp - Splitting up the alternative titles that were all written in one cell on the excel sheet
             genre_split.append(y)
-            z = lines[0].split(", ")
+            z = lines[0].split(", ") #https://www.w3schools.com/python/ref_string_split.asp - Splitting up the alternative titles that were all written in one cell on the excel sheet
             title_split.append(z)           
     genre_dictionary = {}
     for item in genre_split:
@@ -60,13 +60,13 @@ def compare (genre_dictionary, request_title, list_anime):
     return p 
 
 def sort(alist): #called bubble sort https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-4.php
-    new_list = alist[:] # create an identical list using spice, 
-    for passnum in range(len(new_list)-1,0,-1): #going from the back, decreasing by index of 1 each time, comparing index value
-        for i in range(passnum): #for i in range of the number
-            if new_list[i][2] < new_list[i+1][2]: #first i references which list, second is taking the value, comparing the value, comparing if it is higher or lower
-                temp = new_list[i] #putting the entire list into temporary list
-                new_list[i] = new_list[i+1] #shifting the values, the i+1 is how you shift the values (moving list in front of the other)
-                new_list[i+1] = temp #edited list becomes new list 
+    new_list = alist[:] # https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-4.php - create an identical list using spice, 
+    for passnum in range(len(new_list)-1,0,-1): # https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-4.php - going from the back, decreasing by index of 1 each time, comparing index value
+        for i in range(passnum): # https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-4.php- for i in range of the number
+            if new_list[i][2] < new_list[i+1][2]: # https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-4.php - first i references which list, second is taking the value, comparing the value, comparing if it is higher or lower
+                temp = new_list[i] # https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-4.php - putting the entire list into temporary list
+                new_list[i] = new_list[i+1] # https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-4.php - shifting the values, the i+1 is how you shift the values (moving list in front of the other) 
+                new_list[i+1] = temp # https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-4.php - edited list becomes new list 
     return new_list 
 
 def global_list1():
@@ -74,8 +74,8 @@ def global_list1():
     database = read_csv()[1]
     valid = False
     for anime_record in database:
-        x = str(anime_record[1]).split(", ")
-        if (anime_record[0].lower() == request_title.lower() or request_title.lower() in x or request_title in x):
+        x = str(anime_record[1]).split(", ") # https://www.w3schools.com/python/ref_string_split.asp - Splitting up the alternative titles that were all written in one cell on the excel sheet
+        if (anime_record[0].lower() == request_title.lower() or request_title.lower() in x or request_title in x): # https://stackoverflow.com/questions/319426/how-do-i-do-a-case-insensitive-string-comparison - Case insensitive string: Took into account the user inputting anime titles in lower or upper case and how that would have affected the comparison to the excel sheet 
             request_title = anime_record[0]
             valid = True
     if valid == True:
@@ -109,8 +109,8 @@ def valid_search(title):
     database = read_csv()[1]
     valid = False
     for anime_record in database:
-        x = str(anime_record[1]).split(", ")
-        if(anime_record[0].lower() == title.lower() or title.lower() in x or title in x):
+        x = str(anime_record[1]).split(", ") #https://www.w3schools.com/python/ref_string_split.asp - Splitting up the alternative titles that were all written in one cell on the excel sheet
+        if(anime_record[0].lower() == title.lower() or title.lower() in x or title in x): # https://stackoverflow.com/questions/319426/how-do-i-do-a-case-insensitive-string-comparison - Case insensitive string: Took into account the user inputting anime titles in lower or upper case and how that would have affected the comparison to the excel sheet
             print ("Name of anime: " + anime_record[0])
             valid = True
     if valid == True:
@@ -122,37 +122,37 @@ def valid_search(title):
 def get_airing(title):
     database = read_csv()[1]
     for anime_record in database:
-        x = str(anime_record[1]).split(", ")
-        if (anime_record[0].lower() == title.lower() or title.lower() in x or title in x):
+        x = str(anime_record[1]).split(", ") #https://www.w3schools.com/python/ref_string_split.asp - Splitting up the alternative titles that were all written in one cell on the excel sheet
+        if (anime_record[0].lower() == title.lower() or title.lower() in x or title in x): # https://stackoverflow.com/questions/319426/how-do-i-do-a-case-insensitive-string-comparison - Case insensitive string: Took into account the user inputting anime titles in lower or upper case and how that would have affected the comparison to the excel sheet
             print ("The airing time is " + str(anime_record[2]) + " at " + str(anime_record[3]))
         
 def get_genre(title):
     database = read_csv()[1]
     for anime_record in database:
-        x = str(anime_record[1]).split(", ")
-        if (anime_record[0].lower() == title.lower() or title.lower() in x or title in x):
+        x = str(anime_record[1]).split(", ") #https://www.w3schools.com/python/ref_string_split.asp - Splitting up the alternative titles that were all written in one cell on the excel sheet
+        if (anime_record[0].lower() == title.lower() or title.lower() in x or title in x): # https://stackoverflow.com/questions/319426/how-do-i-do-a-case-insensitive-string-comparison - Case insensitive string: Took into account the user inputting anime titles in lower or upper case and how that would have affected the comparison to the excel sheet
             print ("Genre: " + str(anime_record[4]))
 
 def get_rating(title):
     database = read_csv()[1]
     for anime_record in database:
-        x = str(anime_record[1]).split(", ")
+        x = str(anime_record[1]).split(", ") #https://www.w3schools.com/python/ref_string_split.asp - Splitting up the alternative titles that were all written in one cell on the excel sheet
         anime_record[5] = float(anime_record[5])
-        if (anime_record[0].lower() == title.lower() or title.lower() in x or title in x):
+        if (anime_record[0].lower() == title.lower() or title.lower() in x or title in x): # https://stackoverflow.com/questions/319426/how-do-i-do-a-case-insensitive-string-comparison - Case insensitive string: Took into account the user inputting anime titles in lower or upper case and how that would have affected the comparison to the excel sheet
             print ("Rating: " + str(anime_record[5]))
 
 def get_studio(title):
     database = read_csv()[1]
     for anime_record in database:
-        x = str(anime_record[1]).split(", ")
-        if (anime_record[0].lower() == title.lower() or title.lower() in x or title in x):
+        x = str(anime_record[1]).split(", ") # https://www.w3schools.com/python/ref_string_split.asp - Splitting up the alternative titles that were all written in one cell on the excel sheet
+        if (anime_record[0].lower() == title.lower() or title.lower() in x or title in x): # https://stackoverflow.com/questions/319426/how-do-i-do-a-case-insensitive-string-comparison - Case insensitive string: Took into account the user inputting anime titles in lower or upper case and how that would have affected the comparison to the excel sheet
             print ("Studio: " + anime_record[6]) 
     
 def anime_day(day):
     print()
     database = read_csv()[1]
     for anime_record in database:
-        if (anime_record[2].lower() == day.lower()):
+        if (anime_record[2].lower() == day.lower()): # https://stackoverflow.com/questions/319426/how-do-i-do-a-case-insensitive-string-comparison - Case insensitive string: Took into account the user inputting anime titles in lower or upper case and how that would have affected the comparison to the excel sheet
             print(str(anime_record[0]) + " at " + str(anime_record[3]))
 
 
@@ -173,8 +173,8 @@ def see_more():
     elif (more == "no thanks"):
         print("\nThank you for using MY ANIBOT (o^▽^o) \n")
         print("By the way, you can also type 'get_started()' to get more commands to explore with!")
-        import sys #https://stackoverflow.com/questions/19782075/how-to-stop-terminate-a-python-script-from-running/34029481
-        sys.exit()        
+        import sys #https://stackoverflow.com/questions/19782075/how-to-stop-terminate-a-python-script-from-running/34029481 - allowed us cleanly terminate the program when needed
+        sys.exit() #https://stackoverflow.com/questions/19782075/how-to-stop-terminate-a-python-script-from-running/34029481 - allowed us cleanly terminate the program when needed      
     elif (more != "more" or "no thanks"):
         print("\nPlease enter 'other animes' or 'no thanks'")
         see_more() 
@@ -195,10 +195,10 @@ def get_ranking():
         answer = input("\nWould you want it in ascending or descending order?\n(answer 'ascending' or 'descending')\n")
         if (answer == "descending"):
             invalid_input = False
-            ranking.sort(reverse = True)
+            ranking.sort(reverse = True) # https://www.afternerd.com/blog/python-sort-list/ - Sorting list elements in numerical and alphabetical order: sorting anime from best to worst and vice versa based on rating for get_rating() function
         elif (answer == "ascending"):
             invalid_input = False
-            ranking.sort()
+            ranking.sort() # https://www.afternerd.com/blog/python-sort-list/ - Sorting list elements in numerical and alphabetical order: sorting anime from best to worst and vice versa based on rating for get_rating() function
         elif (answer != "descending" or "ascending"):
             print("Please answer 'ascending' or 'descending'")
             get_ranking()
@@ -216,9 +216,9 @@ def season():
         for lines in csv_reader:
             y = lines[0]
             lista.append(y)
-            lista.sort()
+            lista.sort() # https://www.afternerd.com/blog/python-sort-list/ - Sorting list elements in numerical and alphabetical order: Order anime in alphabetical order for the season() function
         print()
-        print(*lista[0:-1], sep = "\n") #https://www.geeksforgeeks.org/print-lists-in-python-4-different-ways/
+        print(*lista[0:-1], sep = "\n") #https://www.geeksforgeeks.org/print-lists-in-python-4-different-ways/ - priting list elements in new lines to allow for a cleaner display of all seasonal anime
 
 
 def get_started():
@@ -241,8 +241,8 @@ def begin_program():
         valid_search(title)       
     elif (start == "own"):
         print("\nType 'get_started()' to get the list of commands that will \nhelp you with your seasonal anime searching! \n")
-        import sys #https://stackoverflow.com/questions/19782075/how-to-stop-terminate-a-python-script-from-running/34029481
-        sys.exit()         
+        import sys #https://stackoverflow.com/questions/19782075/how-to-stop-terminate-a-python-script-from-running/34029481 - allowed us cleanly terminate the program when needed
+        sys.exit() #https://stackoverflow.com/questions/19782075/how-to-stop-terminate-a-python-script-from-running/34029481 - allowed us cleanly terminate the program when needed         
     elif (start != ("one" or "own")):
         print("\nPlease enter either 'one' or 'own'")
         begin_program()   
